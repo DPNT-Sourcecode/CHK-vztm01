@@ -60,4 +60,10 @@ class CheckoutSolutionTest {
         String skus = "BEEEE";
         assert(checkoutSolution.checkout(skus).equals(4*40));
     }
+
+    @Test
+    void shouldApplyCrossUnitOffersInFavourOftheCustomer(){
+        String skus = "BEBEEE";
+        assert(checkoutSolution.checkout(skus).equals(160));
+    }
 }
