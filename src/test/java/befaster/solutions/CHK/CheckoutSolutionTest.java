@@ -14,4 +14,14 @@ class CheckoutSolutionTest {
         String skus = "A";
         assert(checkoutSolution.checkout(skus).equals(prices[skus.charAt(0)-'A']));
     }
+
+    @Test
+    void shouldReturnCostForMultipleSingleUnits() {
+        String skus = "A,B,C,D";
+        int total = 0;
+        for(int price : prices)
+            total += price;
+
+        assert(checkoutSolution.checkout(skus).equals(total));
+    }
 }

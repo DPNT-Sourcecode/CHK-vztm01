@@ -8,8 +8,14 @@ public class CheckoutSolution {
     public Integer checkout(String skus) {
         String[] units = skus.split(",");
         int[] count = {0, 0, 0, 0};
+        int final_price = 0;
+
         for(String unit: units)
             count[unit.charAt(0)-'A']++;
-        return 0;
+
+        for(int i = 0; i < count.length; i++)
+            final_price += (count[i] * prices[i]);
+
+        return final_price;
     }
 }
