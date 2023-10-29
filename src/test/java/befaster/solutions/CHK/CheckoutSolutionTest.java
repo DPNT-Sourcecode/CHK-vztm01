@@ -17,7 +17,7 @@ class CheckoutSolutionTest {
 
     @Test
     void shouldReturnCostForMultipleSingleUnits() {
-        String skus = "A,B,C,D";
+        String skus = "ABCD";
         int total = 0;
         for(int price : prices)
             total += price;
@@ -27,19 +27,19 @@ class CheckoutSolutionTest {
 
     @Test
     void shouldApplyOfferWhenApplicable() {
-        String skus = "A,A,A";
+        String skus = "AAA";
         assert(checkoutSolution.checkout(skus).equals(130));
     }
 
     @Test
     void shouldApplyMultipleOfferWhenApplicable() {
-        String skus = "A,A,A,B,B,C";
+        String skus = "AAABBC";
         assert(checkoutSolution.checkout(skus).equals(130+45+20));
     }
 
     @Test
     void shouldReturnNegativeOneIfInvalidInput(){
-        String skus = "A,E";
+        String skus = "AE";
         assert(checkoutSolution.checkout(skus).equals(-1));
     }
 }
