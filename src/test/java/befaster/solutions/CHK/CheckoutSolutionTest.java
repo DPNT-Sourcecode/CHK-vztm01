@@ -20,11 +20,7 @@ class CheckoutSolutionTest {
         @Test
         void shouldReturnCostForMultipleSingleUnits() {
             String skus = "ABCD";
-            int total = 0;
-            for(int price : prices)
-                total += price;
-
-            assert(checkoutSolution.checkout(skus).equals(total));
+            assert(checkoutSolution.checkout(skus).equals(50+30+20+15));
         }
 
         @Test
@@ -115,6 +111,15 @@ class CheckoutSolutionTest {
         void shouldApplyOfferOnTwo(){
             String skus = "KKKKK";
             assert(checkoutSolution.checkout(skus).equals(380));
+        }
+    }
+
+    @Nested
+    class OfferOnMAndN {
+        @Test
+        void shouldApplyOfferOnMForThreeN(){
+            String skus = "NNNNMM";
+            assert(checkoutSolution.checkout(skus).equals(160+15));
         }
     }
 }

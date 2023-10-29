@@ -22,6 +22,9 @@ public class CheckoutSolution {
         int number_of_free_b = min(count[4]/2, count[1]);
         count[1] -= number_of_free_b;
 
+        int number_of_free_m = min(count[13]/3,count[12]);
+        count[12] -= number_of_free_m;
+
         for(int i = 0; i < count.length; i++) {
             if(i == 0) {
                 int first_offer_units = count[i] / 5;
@@ -54,6 +57,21 @@ public class CheckoutSolution {
                 int first_offer_units = count[i] / 2;
                 count[i] -= (first_offer_units*2);
                 final_price += (first_offer_units * 150);
+            }
+            else if(i==15){
+
+            }
+            else if(i==16){
+
+            }
+            else if(i==17){
+
+            }
+            else if(i==20){
+
+            }
+            else if(i==21){
+
             }
 
             final_price += (count[i] * prices[i]);
