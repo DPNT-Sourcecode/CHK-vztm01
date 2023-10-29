@@ -1,28 +1,31 @@
 package befaster.solutions.CHK;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CheckoutSolutionTest {
 
     CheckoutSolution checkoutSolution = new CheckoutSolution();
     int[] prices = {50, 30, 20, 15};
 
-    @Test
-    void shouldReturnCostForSingleUnit() {
-        String skus = "A";
-        assert(checkoutSolution.checkout(skus).equals(prices[skus.charAt(0)-'A']));
-    }
+    @Nested
+    class SingleUnit {
+        @Test
+        void shouldReturnCostForSingleUnit() {
+            String skus = "A";
+            assert(checkoutSolution.checkout(skus).equals(prices[skus.charAt(0)-'A']));
+        }
 
-    @Test
-    void shouldReturnCostForMultipleSingleUnits() {
-        String skus = "ABCD";
-        int total = 0;
-        for(int price : prices)
-            total += price;
+        @Test
+        void shouldReturnCostForMultipleSingleUnits() {
+            String skus = "ABCD";
+            int total = 0;
+            for(int price : prices)
+                total += price;
 
-        assert(checkoutSolution.checkout(skus).equals(total));
+            assert(checkoutSolution.checkout(skus).equals(total));
+        }
     }
 
     @Test
