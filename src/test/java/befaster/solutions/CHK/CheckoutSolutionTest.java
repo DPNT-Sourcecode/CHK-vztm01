@@ -79,4 +79,3 @@ class CheckoutSolutionTest {
         assert(checkoutSolution.checkout(skus).equals(20));
     }
 }
-
