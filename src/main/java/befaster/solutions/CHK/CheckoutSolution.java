@@ -5,8 +5,12 @@ import befaster.runner.SolutionNotImplementedException;
 public class CheckoutSolution {
 
     int[] prices = {50, 30, 20, 15};
+
+    public String[] parseSkus(String skus) {
+        return skus.split(",");
+    }
     public Integer checkout(String skus) {
-        String[] units = skus.split(",");
+        String[] units = parseSkus(skus);
         int[] count = {0, 0, 0, 0};
         int final_price = 0;
 

@@ -24,4 +24,10 @@ class CheckoutSolutionTest {
 
         assert(checkoutSolution.checkout(skus).equals(total));
     }
+
+    @Test
+    void shouldApplyOfferWhenApplicable() {
+        String skus = "A,A,A";
+        assert(checkoutSolution.checkout(skus).equals(130));
+    }
 }
