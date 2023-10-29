@@ -72,7 +72,8 @@ public class CheckoutSolution {
                 final_price += (first_offer_units * 80);
             }
             else if(i==20){
-
+                if(count[i] >=4)
+                    count[i] -= count[i]/4;
             }
             else if(i==21){
 

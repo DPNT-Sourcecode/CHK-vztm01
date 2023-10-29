@@ -149,4 +149,22 @@ class CheckoutSolutionTest {
             assert(checkoutSolution.checkout(skus).equals(150+80));
         }
     }
+
+    @Nested
+    class OfferOnU {
+        @Test
+        void shouldApplyOfferOn3U() {
+            String skus = "UUUUU";
+            assert(checkoutSolution.checkout(skus).equals(160));
+        }
+    }
+
+    @Nested
+    class OfferOnV {
+        @Test
+        void shouldApplyOfferOn3U() {
+            String skus = "VVVVV";
+            assert(checkoutSolution.checkout(skus).equals(90+130));
+        }
+    }
 }
