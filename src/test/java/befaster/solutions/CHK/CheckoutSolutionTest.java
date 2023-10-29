@@ -39,7 +39,7 @@ class CheckoutSolutionTest {
 
     @Test
     void shouldReturnNegativeOneIfInvalidInput(){
-        String skus = "AE";
+        String skus = "Ax";
         assert(checkoutSolution.checkout(skus).equals(-1));
     }
 
@@ -53,5 +53,11 @@ class CheckoutSolutionTest {
     void shouldApplyCrossUnitOffersCorrectly(){
         String skus = "BEE";
         assert(checkoutSolution.checkout(skus).equals(2*40));
+    }
+
+    @Test
+    void shouldApplyCrossUnitOffersCorrectlyIfUnitsPurchasedIsLessThanApplicableOffer(){
+        String skus = "BEEEE";
+        assert(checkoutSolution.checkout(skus).equals(4*40));
     }
 }

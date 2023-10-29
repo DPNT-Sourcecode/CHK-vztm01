@@ -2,6 +2,8 @@ package befaster.solutions.CHK;
 
 import befaster.runner.SolutionNotImplementedException;
 
+import static java.lang.Integer.min;
+
 public class CheckoutSolution {
 
     int[] prices = {50, 30, 20, 15, 40};
@@ -12,7 +14,7 @@ public class CheckoutSolution {
 
         for(int i = 0; i < skus.length(); i++) {
             int current = skus.charAt(i)-'A';
-            if(current > 3 || current < 0 )
+            if(current > prices.length-1 || current < 0 )
                 return -1;
             count[skus.charAt(i) - 'A']++;
         }
@@ -38,6 +40,9 @@ public class CheckoutSolution {
             else
                 final_price += (count[i] * prices[i]);
         }
+
+        int number_of_free_b = min(count[4]/2, count[1]);
+        final_price -= (number_of_free_b*prices[1]);
 
         return final_price;
     }
