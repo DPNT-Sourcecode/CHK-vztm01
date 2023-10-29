@@ -42,4 +42,10 @@ class CheckoutSolutionTest {
         String skus = "AE";
         assert(checkoutSolution.checkout(skus).equals(-1));
     }
+
+    @Test
+    void shouldApplyDifferentOffersOnADependingOnNumberOfUnits(){
+        String skus = "AAAAAAAA";
+        assert(checkoutSolution.checkout(skus).equals(330));
+    }
 }
