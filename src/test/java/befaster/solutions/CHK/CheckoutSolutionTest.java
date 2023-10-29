@@ -10,7 +10,7 @@ class CheckoutSolutionTest {
     int[] prices = {50, 30, 20, 15};
 
     @Nested
-    class SingleUnit {
+    class GeneralCases {
         @Test
         void shouldReturnCostForSingleUnit() {
             String skus = "A";
@@ -26,59 +26,86 @@ class CheckoutSolutionTest {
 
             assert(checkoutSolution.checkout(skus).equals(total));
         }
+
+        @Test
+        void shouldReturnNegativeOneIfInvalidInput(){
+            String skus = "Ax";
+            assert(checkoutSolution.checkout(skus).equals(-1));
+        }
     }
 
-    @Test
-    void shouldApplyOfferWhenApplicable() {
-        String skus = "AAA";
-        assert(checkoutSolution.checkout(skus).equals(130));
+    @Nested
+    class OfferOnA {
+        @Test
+        void shouldApplyOfferOnThree() {
+            String skus = "AAA";
+            assert(checkoutSolution.checkout(skus).equals(130));
+        }
+
+        @Test
+        void shouldApplyOfferOnFiveAndThree(){
+            String skus = "AAAAAAAA";
+            assert(checkoutSolution.checkout(skus).equals(330));
+        }
     }
 
-    @Test
-    void shouldApplyMultipleOfferWhenApplicable() {
-        String skus = "AAABBC";
-        assert(checkoutSolution.checkout(skus).equals(130+45+20));
+    @Nested
+    class OfferOnB {
+        @Test
+        void shouldApplyMultipleOfferWhenApplicable() {
+            String skus = "AAABBC";
+            assert(checkoutSolution.checkout(skus).equals(130+45+20));
+        }
     }
 
-    @Test
-    void shouldReturnNegativeOneIfInvalidInput(){
-        String skus = "Ax";
-        assert(checkoutSolution.checkout(skus).equals(-1));
+    @Nested
+    class OfferOnE {
+        @Test
+        void shouldApplyCrossUnitOffersCorrectly(){
+            String skus = "BEE";
+            assert(checkoutSolution.checkout(skus).equals(2*40));
+        }
+
+        @Test
+        void shouldApplyCrossUnitOffersCorrectlyIfUnitsPurchasedIsLessThanApplicableOffer(){
+            String skus = "BEEEE";
+            assert(checkoutSolution.checkout(skus).equals(4*40));
+        }
+
+        @Test
+        void shouldApplyCrossUnitOffersInFavourOftheCustomer(){
+            String skus = "BEBEEE";
+            assert(checkoutSolution.checkout(skus).equals(160));
+        }
     }
 
-    @Test
-    void shouldApplyDifferentOffersOnADependingOnNumberOfUnits(){
-        String skus = "AAAAAAAA";
-        assert(checkoutSolution.checkout(skus).equals(330));
+    @Nested
+    class OfferOnF {
+        @Test
+        void shouldApplyDiscountForFWhenThereAre3Units(){
+            String skus = "FFFFF";
+            assert(checkoutSolution.checkout(skus).equals(40));
+        }
+
+        @Test
+        void shouldNotApplyDiscountForFWhenThereAreLessThan3Units(){
+            String skus = "FF";
+            assert(checkoutSolution.checkout(skus).equals(20));
+        }
     }
 
-    @Test
-    void shouldApplyCrossUnitOffersCorrectly(){
-        String skus = "BEE";
-        assert(checkoutSolution.checkout(skus).equals(2*40));
-    }
+    @Nested
+    class OfferOnH {
+        @Test
+        void shouldApplyOfferOnFive(){
+            String skus = "HHHHHHH";
+            assert(checkoutSolution.checkout(skus).equals(65));
+        }
 
-    @Test
-    void shouldApplyCrossUnitOffersCorrectlyIfUnitsPurchasedIsLessThanApplicableOffer(){
-        String skus = "BEEEE";
-        assert(checkoutSolution.checkout(skus).equals(4*40));
-    }
-
-    @Test
-    void shouldApplyCrossUnitOffersInFavourOftheCustomer(){
-        String skus = "BEBEEE";
-        assert(checkoutSolution.checkout(skus).equals(160));
-    }
-
-    @Test
-    void shouldApplyDiscountForFWhenThereAre3Units(){
-        String skus = "FFFFF";
-        assert(checkoutSolution.checkout(skus).equals(40));
-    }
-
-    @Test
-    void shouldNotApplyDiscountForFWhenThereAreLessThan3Units(){
-        String skus = "FF";
-        assert(checkoutSolution.checkout(skus).equals(20));
+        @Test
+        void shouldApplyOfferOnTen(){
+            String skus = "HHHHHHHHHHH";
+            assert(checkoutSolution.checkout(skus).equals(90));
+        }
     }
 }
