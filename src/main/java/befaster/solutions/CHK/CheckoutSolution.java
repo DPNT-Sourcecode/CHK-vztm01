@@ -19,6 +19,9 @@ public class CheckoutSolution {
             count[skus.charAt(i) - 'A']++;
         }
 
+        int number_of_free_b = min(count[4]/2, count[1]);
+        count[1] -= number_of_free_b;
+
         for(int i = 0; i < count.length; i++) {
             if(i == 0) {
                 int first_offer_units = count[i] / 5;
@@ -41,9 +44,7 @@ public class CheckoutSolution {
                 final_price += (count[i] * prices[i]);
         }
 
-        int number_of_free_b = min(count[4]/2, count[1]);
-        final_price -= (number_of_free_b*prices[1]);
-
         return final_price;
     }
 }
+
