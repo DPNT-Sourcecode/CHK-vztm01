@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class CheckoutSolutionTest {
 
     CheckoutSolution checkoutSolution = new CheckoutSolution();
-    int[] prices = {50, 30, 20, 15};
+    int[] prices = {50, 30, 20, 15, 40, 10, 20, 10, 35, 60, 80, 90, 15};
 
     @Nested
     class GeneralCases {
@@ -118,3 +118,4 @@ class CheckoutSolutionTest {
         }
     }
 }
+
