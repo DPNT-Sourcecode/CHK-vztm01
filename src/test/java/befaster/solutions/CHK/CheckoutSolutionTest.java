@@ -36,4 +36,10 @@ class CheckoutSolutionTest {
         String skus = "A,A,A,B,B,C";
         assert(checkoutSolution.checkout(skus).equals(130+45+20));
     }
+
+    @Test
+    void shouldReturnNegativeOneIfInvalidInput(){
+        String skus = "A,E";
+        assert(checkoutSolution.checkout(skus).equals(-1));
+    }
 }

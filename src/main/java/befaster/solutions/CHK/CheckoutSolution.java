@@ -14,8 +14,12 @@ public class CheckoutSolution {
         int[] count = {0, 0, 0, 0};
         int final_price = 0;
 
-        for(String unit: units)
-            count[unit.charAt(0)-'A']++;
+        for(String unit: units) {
+            int current = unit.charAt(0)-'A';
+            if(current > 3 || current < 0 )
+                return -1;
+            count[unit.charAt(0) - 'A']++;
+        }
 
         for(int i = 0; i < count.length; i++) {
             if(i == 0) {
