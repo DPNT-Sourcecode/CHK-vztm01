@@ -59,10 +59,14 @@ public class CheckoutSolution {
                 final_price += (first_offer_units * 150);
             }
             else if(i==15){
-
+                int first_offer_units = count[i] / 5;
+                count[i] -= (first_offer_units*5);
+                final_price += (first_offer_units * 200);
             }
             else if(i==16){
-
+                int first_offer_units = count[i] / 3;
+                count[i] -= (first_offer_units*3);
+                final_price += (first_offer_units * 80);
             }
             else if(i==17){
 
@@ -80,5 +84,3 @@ public class CheckoutSolution {
         return final_price;
     }
 }
-
-
