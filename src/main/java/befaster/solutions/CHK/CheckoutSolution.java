@@ -31,20 +31,22 @@ public class CheckoutSolution {
                 int second_offer_units = count[i] / 3;
                 count[i] -= (second_offer_units*3);
                 final_price += (second_offer_units * 130);
-
-                final_price += (count[i] * 50);
             }
             else if(i==1) {
                 int offer_units = count[i] / 2;
                 count[i] -= (offer_units*2);
-                final_price += (count[i] * prices[i]);
                 final_price += (offer_units * 45);
             }
-            else
-                final_price += (count[i] * prices[i]);
+            else if(i==5) {
+                if(count[i] >=3)
+                    count[i] -= count[i]/2;
+            }
+
+            final_price += (count[i] * prices[i]);
         }
 
         return final_price;
     }
 }
+
 
