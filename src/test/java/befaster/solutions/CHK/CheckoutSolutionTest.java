@@ -66,4 +66,16 @@ class CheckoutSolutionTest {
         String skus = "BEBEEE";
         assert(checkoutSolution.checkout(skus).equals(160));
     }
+
+    @Test
+    void shouldApplyDiscountForFWhenThereAre3Units(){
+        String skus = "FFF";
+        assert(checkoutSolution.checkout(skus).equals(20));
+    }
+
+    @Test
+    void shouldNotApplyDiscountForFWhenThereAreLessThan3Units(){
+        String skus = "FF";
+        assert(checkoutSolution.checkout(skus).equals(20));
+    }
 }
