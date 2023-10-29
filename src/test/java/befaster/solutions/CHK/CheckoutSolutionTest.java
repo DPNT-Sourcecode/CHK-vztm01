@@ -48,4 +48,10 @@ class CheckoutSolutionTest {
         String skus = "AAAAAAAA";
         assert(checkoutSolution.checkout(skus).equals(330));
     }
+
+    @Test
+    void shouldApplyCrossUnitOffersCorrectly(){
+        String skus = "BEE";
+        assert(checkoutSolution.checkout(skus).equals(2*40));
+    }
 }
