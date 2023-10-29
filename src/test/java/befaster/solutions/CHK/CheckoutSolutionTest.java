@@ -70,7 +70,7 @@ class CheckoutSolutionTest {
     @Test
     void shouldApplyDiscountForFWhenThereAre3Units(){
         String skus = "FFFFF";
-        assert(checkoutSolution.checkout(skus).equals(30));
+        assert(checkoutSolution.checkout(skus).equals(40));
     }
 
     @Test
@@ -79,3 +79,4 @@ class CheckoutSolutionTest {
         assert(checkoutSolution.checkout(skus).equals(20));
     }
 }
+

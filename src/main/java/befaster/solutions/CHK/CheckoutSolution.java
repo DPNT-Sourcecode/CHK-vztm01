@@ -39,7 +39,7 @@ public class CheckoutSolution {
             }
             else if(i==5) {
                 if(count[i] >=3)
-                    count[i] -= count[i]/2;
+                    count[i] -= count[i]/3;
             }
 
             final_price += (count[i] * prices[i]);
@@ -48,5 +48,6 @@ public class CheckoutSolution {
         return final_price;
     }
 }
+
 
 
