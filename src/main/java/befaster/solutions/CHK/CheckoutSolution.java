@@ -6,10 +6,10 @@ import static java.lang.Integer.min;
 
 public class CheckoutSolution {
 
-    int[] prices = {50, 30, 20, 15, 40, 10};
+    int[] prices = {50, 30, 20, 15, 40, 10, 20, 10, 35, 60, 80};
 
     public Integer checkout(String skus) {
-        int[] count = {0, 0, 0, 0, 0, 0};
+        int[] count = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         int final_price = 0;
 
         for(int i = 0; i < skus.length(); i++) {
@@ -48,3 +48,4 @@ public class CheckoutSolution {
         return final_price;
     }
 }
+
