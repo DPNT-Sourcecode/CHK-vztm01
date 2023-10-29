@@ -1,7 +1,5 @@
 package befaster.solutions.HLO;
 
-import befaster.runner.SolutionNotImplementedException;
-
 public class HelloSolution {
     public String hello(String friendName) {
         if(friendName.equals("John"))
@@ -9,7 +7,3 @@ public class HelloSolution {
         return "Hello, World!";
     }
 }
-
-
-
-
