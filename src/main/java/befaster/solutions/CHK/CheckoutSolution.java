@@ -25,6 +25,9 @@ public class CheckoutSolution {
         int number_of_free_m = min(count[13]/3,count[12]);
         count[12] -= number_of_free_m;
 
+        int number_of_free_q = min(count[17]/3, count[16]);
+        count[16] -= number_of_free_q;
+
         for(int i = 0; i < count.length; i++) {
             if(i == 0) {
                 int first_offer_units = count[i] / 5;
@@ -67,9 +70,6 @@ public class CheckoutSolution {
                 int first_offer_units = count[i] / 3;
                 count[i] -= (first_offer_units*3);
                 final_price += (first_offer_units * 80);
-            }
-            else if(i==17){
-
             }
             else if(i==20){
 
