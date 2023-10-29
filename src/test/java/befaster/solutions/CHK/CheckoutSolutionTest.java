@@ -30,4 +30,10 @@ class CheckoutSolutionTest {
         String skus = "A,A,A";
         assert(checkoutSolution.checkout(skus).equals(130));
     }
+
+    @Test
+    void shouldApplyMultipleOfferWhenApplicable() {
+        String skus = "A,A,A,B,B,C";
+        assert(checkoutSolution.checkout(skus).equals(130+45+20));
+    }
 }

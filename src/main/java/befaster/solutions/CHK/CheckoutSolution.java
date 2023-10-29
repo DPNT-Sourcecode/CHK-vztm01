@@ -17,8 +17,22 @@ public class CheckoutSolution {
         for(String unit: units)
             count[unit.charAt(0)-'A']++;
 
-        for(int i = 0; i < count.length; i++)
-            final_price += (count[i] * prices[i]);
+        for(int i = 0; i < count.length; i++) {
+            if(i == 0) {
+                int offer_units = count[i] / 3;
+                count[i] -= (offer_units*3);
+                final_price += (count[i] * prices[i]);
+                final_price += (offer_units * 130);
+            }
+            else if(i==1) {
+                int offer_units = count[i] / 2;
+                count[i] -= (offer_units*2);
+                final_price += (count[i] * prices[i]);
+                final_price += (offer_units * 45);
+            }
+            else
+                final_price += (count[i] * prices[i]);
+        }
 
         return final_price;
     }
