@@ -28,6 +28,12 @@ public class CheckoutSolution {
         int number_of_free_q = min(count[17]/3, count[16]);
         count[16] -= number_of_free_q;
 
+        // S,T,X,Y,Z
+        count[18] += count[19] + count[23] + count[24] + count[25];
+        final_price += (count[18]/3)*45;
+        count[18] -= count[18]/3;
+        final_price += count[18]
+
         for(int i = 0; i < count.length; i++) {
             if(i == 0) {
                 int first_offer_units = count[i] / 5;
@@ -59,7 +65,7 @@ public class CheckoutSolution {
             else if(i==10) {
                 int first_offer_units = count[i] / 2;
                 count[i] -= (first_offer_units*2);
-                final_price += (first_offer_units * 150);
+                final_price += (first_offer_units * 120);
             }
             else if(i==15){
                 int first_offer_units = count[i] / 5;
@@ -85,11 +91,10 @@ public class CheckoutSolution {
                 final_price += (second_offer_units * 90);
             }
 
-            final_price += (count[i] * prices[i]);
+            if(i != 18 && i != 19 && i != 23 && i != 24 && i != 25)
+                final_price += (count[i] * prices[i]);
         }
 
         return final_price;
     }
 }
-
-
