@@ -33,7 +33,7 @@ public class CheckoutSolution {
             int temp_sum = (count[18] + count[19] + count[23] + count[24] + count[25])/3;
             final_price += temp_sum*45;
 
-            while(temp_sum > 0) {
+            while(temp_sum*3 > 0) {
                 if(count[25] > 0)
                     count[25]--;
                 else if(count[24] > 0)
@@ -112,5 +112,6 @@ public class CheckoutSolution {
         return final_price;
     }
 }
+
 
 
