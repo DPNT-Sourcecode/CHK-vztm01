@@ -162,7 +162,13 @@ class CheckoutSolutionTest {
     @Nested
     class OfferOnV {
         @Test
-        void shouldApplyOfferOn3U() {
+        void shouldApplyOfferOnTwoVs() {
+            String skus = "VV";
+            assert(checkoutSolution.checkout(skus).equals(90));
+        }
+
+        @Test
+        void shouldApplyOfferOnThreeVs() {
             String skus = "VVVVV";
             assert(checkoutSolution.checkout(skus).equals(90+130));
         }

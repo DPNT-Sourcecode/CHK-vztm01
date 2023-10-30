@@ -76,7 +76,13 @@ public class CheckoutSolution {
                     count[i] -= count[i]/4;
             }
             else if(i==21){
+                int first_offer_units = count[i] / 3;
+                count[i] -= (first_offer_units*3);
+                final_price += (first_offer_units * 130);
 
+                int second_offer_units = count[i] / 2;
+                count[i] -= (second_offer_units*2);
+                final_price += (second_offer_units * 90);
             }
 
             final_price += (count[i] * prices[i]);
@@ -85,3 +91,4 @@ public class CheckoutSolution {
         return final_price;
     }
 }
+
