@@ -179,6 +179,7 @@ class CheckoutSolutionTest {
         @Test
         void shouldApplyOfferOf3OnSTXYZ(){
             String skus = "STXYZ";
+            System.out.println(checkoutSolution.checkout(skus));
             assert(checkoutSolution.checkout(skus).equals(45+17+20));
         }
     }
