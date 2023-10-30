@@ -28,11 +28,21 @@ public class CheckoutSolution {
         int number_of_free_q = min(count[17]/3, count[16]);
         count[16] -= number_of_free_q;
 
-        // S,T,X,Y,Z
-        count[18] += count[19] + count[23] + count[24] + count[25];
-        final_price += (count[18]/3)*45;
+        // S,T,X,Y,Z => 18, 19, 23, 24, 25
+        final_price += count[18]/3 * 45;
         count[18] -= count[18]/3;
-        final_price += count[18]
+
+        final_price += count[19]/3 * 45;
+        count[19] -= count[19]/3;
+
+        final_price += count[23]/3 * 45;
+        count[23] -= count[23]/3;
+
+        final_price += count[24]/3 * 45;
+        count[24] -= count[24]/3;
+
+        final_price += count[25]/3 * 45;
+        count[25] -= count[25]/3;
 
         for(int i = 0; i < count.length; i++) {
             if(i == 0) {
@@ -98,3 +108,4 @@ public class CheckoutSolution {
         return final_price;
     }
 }
+
