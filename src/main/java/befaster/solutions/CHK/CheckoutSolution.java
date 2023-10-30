@@ -30,22 +30,22 @@ public class CheckoutSolution {
 
         // S,T,X,Y,Z => 18, 19, 23, 24, 25
         if(count[18] + count[19] + count[23] + count[24] + count[25] >= 3) {
-            int temp_sum = (count[18] + count[19] + count[23] + count[24] + count[25])/3;
-            final_price += temp_sum*45;
+            int temp_sum = count[18] + count[19] + count[23] + count[24] + count[25];
+            final_price += (temp_sum/3)*45;
 
-            while(temp_sum*3 > 0) {
+            while(temp_sum > 0) {
                 if(count[25] > 0)
-                    count[25]--;
+                    --count[25];
                 else if(count[24] > 0)
-                    count[24]--;
+                    --count[24];
                 else if(count[19] > 0)
-                    count[19]--;
+                    --count[19];
                 else if(count[18] > 0)
-                    count[18]--;
+                    --count[18];
                 else
-                    count[23]--;
+                    --count[23];
 
-                temp_sum--;
+                --temp_sum;
             }
 
             System.out.println("Price here is " + final_price);
@@ -115,6 +115,7 @@ public class CheckoutSolution {
         return final_price;
     }
 }
+
 
 
 
