@@ -110,7 +110,7 @@ class CheckoutSolutionTest {
         @Test
         void shouldApplyOfferOnTwo(){
             String skus = "KKKKK";
-            assert(checkoutSolution.checkout(skus).equals(380));
+            assert(checkoutSolution.checkout(skus).equals(310));
         }
     }
 
@@ -171,6 +171,15 @@ class CheckoutSolutionTest {
         void shouldApplyOfferOnThreeVs() {
             String skus = "VVVVV";
             assert(checkoutSolution.checkout(skus).equals(90+130));
+        }
+    }
+
+    @Nested
+    class OfferOnSTXYZ {
+        @Test
+        void shouldApplyOfferOf3OnSTXYZ(){
+            String skus = "STXYZ";
+            assert(checkoutSolution.checkout(skus).equals(45+17+20));
         }
     }
 }
