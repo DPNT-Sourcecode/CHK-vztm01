@@ -47,6 +47,8 @@ public class CheckoutSolution {
 
                 temp_sum--;
             }
+
+            System.out.println("Price here is " + final_price);
         }
 
         for(int i = 0; i < count.length; i++) {
@@ -107,11 +109,13 @@ public class CheckoutSolution {
             }
 
             final_price += (count[i] * prices[i]);
+            System.out.println("Price for " + (char) (i+'A') + " here is " + final_price);
         }
 
         return final_price;
     }
 }
+
 
 
 
