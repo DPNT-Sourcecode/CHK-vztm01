@@ -6,7 +6,7 @@ import static java.lang.Integer.min;
 
 public class CheckoutSolution {
 
-    int[] prices = {50, 30, 20, 15, 40, 10, 20, 10, 35, 60, 80, 90, 15, 40, 10, 50, 30, 50, 30, 20, 40, 50, 20, 90, 10, 50};
+    int[] prices = {50, 30, 20, 15, 40, 10, 20, 10, 35, 60, 70, 90, 15, 40, 10, 50, 30, 50, 20, 20, 40, 50, 20, 17, 20, 21};
 
     public Integer checkout(String skus) {
         int[] count = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -91,4 +91,5 @@ public class CheckoutSolution {
         return final_price;
     }
 }
+
 
