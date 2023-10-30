@@ -115,9 +115,3 @@ public class CheckoutSolution {
         return final_price;
     }
 }
-
-
-
-
-
-
