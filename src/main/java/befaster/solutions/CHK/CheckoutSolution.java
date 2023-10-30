@@ -44,6 +44,26 @@ public class CheckoutSolution {
         final_price += count[25]/3 * 45;
         count[25] -= count[25]/3;
 
+        if(count[18] + count[19] + count[23] + count[24] + count[25] >= 3) {
+            int temp_sum = (count[18] + count[19] + count[23] + count[24] + count[25])/3;
+            final_price += temp_sum*45;
+
+            while(temp_sum > 0) {
+                if(count[25] > 0)
+                    count[25]--;
+                else if(count[24] > 0)
+                    count[24]--;
+                else if(count[19] > 0)
+                    count[19]--;
+                else if(count[18] > 0)
+                    count[18]--;
+                else
+                    count[23]--;
+
+                temp_sum--;
+            }
+        }
+
         for(int i = 0; i < count.length; i++) {
             if(i == 0) {
                 int first_offer_units = count[i] / 5;
@@ -101,11 +121,11 @@ public class CheckoutSolution {
                 final_price += (second_offer_units * 90);
             }
 
-            if(i != 18 && i != 19 && i != 23 && i != 24 && i != 25)
-                final_price += (count[i] * prices[i]);
+            final_price += (count[i] * prices[i]);
         }
 
         return final_price;
     }
 }
+
 
